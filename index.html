@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>izmirgenclikmeclis | Resmi Web Sitesi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+    <!-- Üst Menü / Navigation -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-slate-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center space-x-2">
+                        <img src="images/logo.png" alt="İzmir Kent Konseyi Gençlik Meclisi" class="h-12 w-auto">
+                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">izmirgenclikmeclis</span>
+                    </div>
+                </div>
+                <!-- Masaüstü Menü -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#hakkimizda" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Biz Kimiz?</a>
+                    <a href="#komisyonlar" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Komisyonlarımız</a>
+                    <a href="#projeler" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Projelerimiz</a>
+                    <a href="#duyurular" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Duyurular</a>
+                    <a href="#" onclick="openFormUrl()" class="apply-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-indigo-100 transition-all flex items-center space-x-1.5">
+                        <i class="fa-solid fa-user-plus text-xs"></i>
+                        <span>Aramıza Katıl</span>
+                    </a>
+                </div>
+                <!-- Mobil Menü Butonu -->
+                <div class="flex items-center md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-lg hover:bg-slate-50 transition-colors">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobil Menü Listesi -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3 shadow-inner">
+            <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Biz Kimiz?</a>
+            <a href="#komisyonlar" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Komisyonlarımız</a>
+            <a href="#projeler" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Projelerimiz</a>
+            <a href="#duyurular" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Duyurular</a>
+            <a href="#" onclick="openFormUrl(); toggleMobileMenu();" class="apply-btn block bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold text-base py-3 rounded-xl transition-all">
+                Aramıza Katıl
+            </a>
+        </div>
+    </nav>
+
+    <!-- Kahraman / Hero Section -->
+    <section class="relative overflow-hidden py-24 lg:py-32 bg-slate-900 bg-cover bg-center" style="background-image: url('images/hero-bg.png');">
+        <!-- Karartma Katmanı (Okunabilirlik için) -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <span class="inline-flex items-center space-x-1.5 bg-white/10 text-indigo-100 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-sm">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>İzmir Kent Konseyi Gençlik Meclisi</span>
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight drop-shadow-lg">
+                        İzmir'in Geleceği <br class="hidden sm:block">
+                        <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Gençlikle Şekilleniyor</span>
+                    </h1>
+                    <p class="text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow">
+                        Fikirlerini projeye dönüştür, kentin yönetiminde söz sahibi ol! 6 komisyonumuzla beraber İzmir'i daha yaşanabilir, dinamik ve yeşil bir gençlik şehri yapmak için çalışıyoruz.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <a href="#" onclick="openFormUrl()" class="apply-btn bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold px-8 py-4 rounded-xl shadow-lg shadow-indigo-900/50 transition-all flex items-center justify-center space-x-2">
+                            <span>Meclise Başvuru Yap</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#komisyonlar" class="bg-white/10 hover:bg-white/20 text-white text-center font-semibold px-8 py-4 rounded-xl border border-white/20 backdrop-blur-sm transition-all flex items-center justify-center space-x-2">
+                            <span>Komisyonları Keşfet</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative w-full max-w-md mx-auto aspect-square rounded-3xl bg-white/10 backdrop-blur-md flex items-center justify-center shadow-2xl border border-white/20 p-8">
+                        <img src="images/logo.png" alt="İzmir Kent Konseyi Gençlik Meclisi" class="object-contain w-full h-full drop-shadow-xl">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center space-x-3">
+                            <div class="bg-emerald-50 text-emerald-600 p-3 rounded-xl"><i class="fa-solid fa-users text-xl"></i></div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase">Aktif Üye Sayısı</p>
+                                <p class="text-xl font-extrabold text-slate-900">+450 Nitelikli Genç</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topluluk Fotoğrafı -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-100">
+                <img src="images/grup-foto.png" alt="İzmir Kent Konseyi Gençlik Meclisi Üyeleri" class="w-full h-auto object-cover" onerror="this.src='images/hero-bg.png'">
+            </div>
+            <p class="text-center text-slate-400 text-sm mt-4">Meclis üyelerimizle birlikte düzenlediğimiz buluşmalardan bir kare.</p>
+        </div>
+    </section>
+
+    <!-- Hakkımızda Bölümü -->
+    <section id="hakkimizda" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Biz Kimiz?</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-600 text-lg">
+                    izmirgenclikmeclis, İzmir Kent Konseyi çatısı altında faaliyet gösteren, kentin 30 ilçesindeki lise ve üniversite gençliğinin sesi olan, tamamen bağımsız ve gönüllü bir demokratik platformdur.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all space-y-4">
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Demokratik Temsiliyet</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Meclis içindeki kararlar, her komisyonun eşit temsiliyle ve ortak akılla alınır. Her ses eşittir.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all space-y-4">
+                    <div class="w-12 h-12 bg-violet-50 text-violet-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-bolt"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Toplumsal Etki</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Sadece konuşmuyor, iklim krizinden NEET gençlere kadar kentin tüm güncel sorunlarına aktif projelerle çözümler üretiyoruz.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all space-y-4">
+                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-network-wired"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Kariyer & Network</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed">
+                        Meclis üyeleri yerel yönetimler, akademisyenler ve iş dünyası liderleriyle doğrudan iş birliği kurma fırsatı yakalar.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Komisyonlar Bölümü -->
+    <section id="komisyonlar" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">6 Aktif Komisyonumuz</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-600 text-base">
+                    Meclis bünyesinde faaliyetlerini iki haftada bir düzenleyen aktif komisyonlarımızı inceleyerek ilgi alanına en uygun olanı seçip başvurunu yapabilirsin.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Komisyon 1 -->
+                <div onclick="openCommissionModal('ogrenci')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Öğrenci Komisyonu</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Lise ve üniversite öğrencilerinin haklarını savunur, akran gelişimini destekleyen etkinlikler ve platformlar oluşturur.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-indigo-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+                <!-- Komisyon 2 -->
+                <div onclick="openCommissionModal('kultur')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-palette"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Kültür Sanat Komisyonu</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Sergiler, tiyatro gösterileri ve sanatsal sokak etkinlikleri düzenleyerek İzmir'in kültürel yaşamına gençlik enerjisi katar.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-amber-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+                <!-- Komisyon 3 -->
+                <div onclick="openCommissionModal('organizasyon')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-slate-100 text-slate-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-gears"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Organizasyon Takımı</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Meclise ait tüm fiziki organizasyonları, zirveleri ve toplantı kurgularını planlar, koordine eder ve hayata geçirir.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-slate-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+                <!-- Komisyon 4 -->
+                <div onclick="openCommissionModal('sosyalmedya')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-mobile-screen"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Sosyal Medya Takımı</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Dijital içerik üretimi, video prodüksiyon ve duyuru tasarımları ile meclisi dijital platformlarda etkin biçimde temsil eder.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-pink-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+                <!-- Komisyon 5 -->
+                <div onclick="openCommissionModal('uluslararasi')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-globe"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Uluslararası Ağlar Takımı</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Erasmus+, ESC ve küresel gençlik projeleri aracılığıyla İzmirli gençleri uluslararası fırsatlar ve ağlarla buluşturur.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-blue-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+                <!-- Komisyon 6 -->
+                <div onclick="openCommissionModal('yerelyonetim')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <div class="w-12 h-12 bg-violet-50 text-violet-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-landmark"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Yerel Yönetimler Komisyonu</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Belediyelerle ortak gençlik politikaları geliştirir ve gençlerin yerel yönetim süreçlerine katılımını güçlendirir.</p>
+                    </div>
+                    <span class="mt-4 inline-flex items-center text-violet-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projeler & NEET Öne Çıkarılanlar -->
+    <section id="projeler" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Öne Çıkan Aktif Projelerimiz</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+                <p class="text-slate-600 text-base">Meclisimiz sadece teoride değil, sahada aktif olarak bu kentsel hareketleri yürütüyor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Proje 1 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-indigo-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-laptop-file text-3xl"></i></div>
+                    <div class="space-y-3">
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase">NEET Hareketi</span>
+                        <h3 class="text-xl font-bold text-slate-900">Genç İzmir Mentorluk Ağı</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">Ne eğitimde ne istihdamda olan (NEET) gençleri İzmir'deki iş dünyası liderleriyle ücretsiz akran mentorluğunda buluşturuyoruz.</p>
+                    </div>
+                </div>
+
+                <!-- Proje 2 -->
+                <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
+                    <div class="bg-violet-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-terminal text-3xl"></i></div>
+                    <div class="space-y-3">
+                        <span class="bg-violet-100 text-violet-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Kentsel Hackathon</span>
+                        <h3 class="text-xl font-bold text-slate-900">Genç İzmir Kent Hackathonu</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">48 saatlik kesintisiz fikir geliştirme kampında üniversiteli gençler İzmir'in ulaşım ve iklim sorunlarına dijital çözümler üretiyor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Duyurular Bölümü -->
+    <section id="duyurular" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Meclisten Son Duyurular</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Duyuru 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    <div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs text-slate-400 font-bold"><i class="fa-regular fa-calendar mr-1"></i> Haziran 2026</span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Yeni Başvuru</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mt-1" id="announcement-title">İzmir Gençlik Meclisi Yeni Dönem Başvuruları Başladı!</h4>
+                        <p class="text-slate-500 text-sm mt-1">Meclisimiz bünyesinde aktif olarak çalışacak yeni yol arkadaşlarımızı arıyoruz. Başvuru formunu doldurarak komisyonlarımıza katılabilirsiniz.</p>
+                    </div>
+                    <a href="#" onclick="openFormUrl()" class="apply-btn bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-sm px-6 py-3 rounded-xl transition-all whitespace-nowrap self-stretch sm:self-auto text-center">
+                        Hemen Başvur
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alt Bilgi / Footer & Admin Girişi -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <p class="text-sm font-semibold text-slate-200">izmirgenclikmeclis | İzmir Kent Konseyi Gençlik Meclisi</p>
+            <p>Herhangi bir veri sunucuya gitmez, tarayıcınızda ve tamamen yerel olarak çalışır.</p>
+            <div class="pt-4 border-t border-slate-800 flex justify-between items-center flex-wrap gap-4">
+                <span>© 2026 İzmir Kent Konseyi Gençlik Meclisi. Tüm Hakları Saklıdır.</span>
+                <button onclick="toggleAdminModal()" class="text-slate-500 hover:text-indigo-400 transition-colors flex items-center space-x-1">
+                    <i class="fa-solid fa-lock text-[10px]"></i>
+                    <span>Yönetici Girişi</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Komisyon Detay Modalı -->
+    <div id="commission-modal" onclick="if(event.target === this) closeCommissionModal()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all">
+        <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-100 overflow-hidden max-h-[85vh] flex flex-col">
+            <div class="flex justify-between items-start p-6 border-b border-slate-100">
+                <div class="flex items-center space-x-4">
+                    <div id="cm-icon" class="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0"></div>
+                    <div>
+                        <h3 id="cm-title" class="text-xl font-bold text-slate-900"></h3>
+                        <p id="cm-subtitle" class="text-xs text-slate-400 font-semibold uppercase mt-0.5"></p>
+                    </div>
+                </div>
+                <button onclick="closeCommissionModal()" class="text-slate-400 hover:text-slate-600 flex-shrink-0"><i class="fa-solid fa-times text-lg"></i></button>
+            </div>
+            <div class="p-6 overflow-y-auto space-y-6">
+                <div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-2 flex items-center space-x-2"><i class="fa-solid fa-circle-info text-indigo-500"></i><span>Komisyon Hakkında</span></h4>
+                    <p id="cm-description" class="text-slate-600 text-sm leading-relaxed"></p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center space-x-2"><i class="fa-solid fa-bolt text-indigo-500"></i><span>Neler Yapıyoruz?</span></h4>
+                    <ul id="cm-events" class="space-y-2"></ul>
+                </div>
+            </div>
+            <div class="p-6 border-t border-slate-100">
+                <a href="#" onclick="openFormUrl()" class="apply-btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-md shadow-indigo-100 transition-all flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-user-plus text-xs"></i>
+                    <span>Bu Komisyona Başvur</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Şık Toast Bildirim Kutusu -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-y-20 opacity-0 transition-all duration-300 z-50">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg" id="toast-icon"></i>
+        <span id="toast-message" class="text-sm font-semibold">Bildirim mesajı</span>
+    </div>
+
+    <!-- Yönetici Giriş Modalı -->
+    <div id="admin-modal" onclick="if(event.target === this) toggleAdminModal()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4 transition-all">
+        <div class="bg-white rounded-3xl max-w-md w-full shadow-2xl border border-slate-100 overflow-hidden transform scale-95 transition-all p-6 space-y-4">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <h3 class="text-lg font-bold text-slate-900 flex items-center space-x-2">
+                    <i class="fa-solid fa-shield-halved text-indigo-600"></i>
+                    <span>Yönetim Paneli Girişi</span>
+                </h3>
+                <button onclick="toggleAdminModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-times text-lg"></i></button>
+            </div>
+            
+            <div id="password-screen" class="space-y-4">
+                <p class="text-slate-500 text-xs">Sitenin başvuru formunu ve ayarlarını değiştirmek için şifreyi girin. <strong class="text-indigo-600">Varsayılan Şifre: igm2026</strong></p>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Yönetici Şifresi</label>
+                    <input type="password" id="admin-password" placeholder="Şifrenizi yazın..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                </div>
+                <button onclick="checkAdminPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-md shadow-indigo-100 transition-all">
+                    Giriş Yap
+                </button>
+            </div>
+
+            <div id="settings-screen" class="hidden space-y-4">
+                <p class="text-xs text-slate-500">Aşağıdaki alanları güncelleyerek web sitesini kod düzenlemeden canlı olarak güncelleyebilirsiniz.</p>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Google Form Başvuru Linki</label>
+                    <input type="url" id="settings-form-url" placeholder="https://docs.google.com/forms/d/..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm font-mono">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Duyuru Başlığı</label>
+                    <input type="text" id="settings-announcement-title" placeholder="Yeni Dönem Başvuruları Başladı!" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm">
+                </div>
+                <button onclick="saveSettings()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-md transition-all">
+                    Değişiklikleri Kaydet
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Mantığı -->
+    <script>
+        // Varsayılan form linki (Eğer henüz ayarlanmadıysa)
+        const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSenRzoBNvapGTmJ_tzyFvPTE1G-c_rTuu5c0CJ3TQVpfp5eAg/viewform";
+
+        // Sayfa Yüklendiğinde Ayarları Yükle
+        window.onload = function() {
+            // Kaydedilen linki yükle
+            const savedUrl = localStorage.getItem('igm_form_url') || DEFAULT_FORM_URL;
+            const savedTitle = localStorage.getItem('igm_announcement_title') || "İzmir Gençlik Meclisi Yeni Dönem Başvuruları Başladı!";
+            
+            document.getElementById('announcement-title').innerText = savedTitle;
+            
+            // Ayarlar formunu doldur
+            document.getElementById('settings-form-url').value = savedUrl;
+            document.getElementById('settings-announcement-title').value = savedTitle;
+        }
+
+        // Başvuru Butonuna Tıklandığında Formu Aç
+        function openFormUrl() {
+            const formUrl = localStorage.getItem('igm_form_url') || DEFAULT_FORM_URL;
+            window.open(formUrl, '_blank');
+        }
+
+        // Komisyon Verileri
+        const COMMISSIONS = {
+            ogrenci: {
+                title: "Öğrenci Komisyonu",
+                subtitle: "Eğitim & Akran Hakları",
+                icon: "fa-solid fa-graduation-cap",
+                color: "indigo",
+                description: "Öğrenci Komisyonu, İzmir’deki lise ve üniversite gençliğinin sesi olmak amacıyla çalışır. Eğitim hayatında karşılaşılan zorluklara çözümler üretmek, öğrencilerin haklarını savunmak ve akademik gelişimlerinin yanı sıra kişisel gelişimlerine de katkı sunmak temel odak noktamızdır.",
+                activities: [
+                    { title: "Akran Mentorluğu", text: "Üst sınıflardaki öğrencilerin, yeni başlayan arkadaşlarına rehberlik ettiği dayanışma ağları kuruyoruz." },
+                    { title: "Hak Savunuculuğu", text: "Eğitimde fırsat eşitliği, ulaşım ve barınma gibi temel öğrenci haklarına yönelik farkındalık çalışmaları yürütüyoruz." },
+                    { title: "Gelişim Atölyeleri", text: "CV hazırlama, mülakat teknikleri, zaman yönetimi ve kariyer planlama seminerleri düzenliyoruz." }
+                ]
+            },
+            kultur: {
+                title: "Kültür Sanat Komisyonu",
+                subtitle: "Sanat & Şehir Kültürü",
+                icon: "fa-solid fa-palette",
+                color: "amber",
+                description: "Sanatın birleştirici gücüne inanıyoruz! Kültür Sanat Komisyonu olarak, İzmir'in köklü kültürel mirasını gençlerin dinamizmiyle harmanlıyor; genç sanatçı adaylarına kendilerini ifade edebilecekleri özgür alanlar yaratıyoruz.",
+                activities: [
+                    { title: "Genç Sahne", text: "Amatör tiyatro topluluklarını, müzik gruplarını ve performans sanatçılarını İzmir halkıyla buluşturuyoruz." },
+                    { title: "Sokak Etkinlikleri ve Sergiler", text: "Sanatı salonlardan sokaklara taşıyarak duvar boyama (grafiti) festivalleri, açık hava fotoğraf ve resim sergileri organize ediyoruz." },
+                    { title: "Kültür Rotaları", text: "İzmir'in tarihi ve kültürel mekanlarına rehberli geziler düzenleyerek gençlerin şehir aidiyetini güçlendiriyoruz." }
+                ]
+            },
+            organizasyon: {
+                title: "Organizasyon Takımı",
+                subtitle: "Etkinlik & Koordinasyon",
+                icon: "fa-solid fa-gears",
+                color: "slate",
+                description: "İzmir Gençlik Meclisi'nin mutfağı ve operasyonel gücü burası! Organizasyon Takımı, meclisimizin imza attığı tüm büyük etkinliklerin, zirvelerin ve kurumsal buluşmaların kusursuz bir şekilde gerçekleşmesini sağlayan görünmez kahramanlardan oluşur.",
+                activities: [
+                    { title: "Zirve ve Kongre Yönetimi", text: "Gençlik zirveleri, çalıştaylar ve kurumsal panellerin lojistik, mekan ve akış yönetimini üstleniyoruz." },
+                    { title: "Networking ve Motivasyon", text: "Meclis içi bağları güçlendirmek adına üyelerimize yönelik kamp, gezi ve sosyal etkinlikler planlıyoruz." },
+                    { title: "Kriz ve Operasyon Yönetimi", text: "Etkinlik anında yaşanabilecek aksaklıkları profesyonelce yöneterek her organizasyonun yüksek verimle tamamlanmasını sağlıyoruz." }
+                ]
+            },
+            sosyalmedya: {
+                title: "Sosyal Medya Takımı",
+                subtitle: "Dijital İletişim & İçerik",
+                icon: "fa-solid fa-mobile-screen",
+                color: "pink",
+                description: "Dijital dünyadaki vitrinimiz olan Sosyal Medya Takımı; meclisimizin sesini, projelerini ve vizyonunu modern iletişim araçlarıyla tüm dünyaya duyurur. Yaratıcı fikirleri estetik tasarımlara ve viral içeriklere dönüştürürüz.",
+                activities: [
+                    { title: "İçerik ve Video Prodüksiyonu", text: "Reels, YouTube videoları, podcast serileri ve röportajlar hazırlayarak gençlerin ilgisini çeken dinamik içerikler üretiyoruz." },
+                    { title: "Grafik Tasarım", text: "Etkinlik afişleri, bilgilendirici infografikler ve web sitesi görselleri ile meclisin kurumsal kimliğini dijitalde inşa ediyoruz." },
+                    { title: "Topluluk Yönetimi", text: "Takipçilerimizle etkileşimi canlı tutuyor, gelen mesaj ve geri bildirimleri koordine ederek dijital bir gençlik topluluğu büyütüyoruz." }
+                ]
+            },
+            uluslararasi: {
+                title: "Uluslararası Ağlar Takımı",
+                subtitle: "Erasmus+ & Küresel Gençlik",
+                icon: "fa-solid fa-globe",
+                color: "blue",
+                description: "Sınırları ortadan kaldırıyoruz! Uluslararası Ağlar Takımı, İzmirli gençlerin dünyaya açılan kapısıdır. Küresel vizyon kazanmak, farklı kültürleri tanımak ve dünyadaki gençlik hareketlerinin bir parçası olmak isteyen herkese rehberlik ediyoruz.",
+                activities: [
+                    { title: "Erasmus+ ve ESC (Avrupa Dayanışma Programı)", text: "Gençlik değişimleri, eğitim kursları ve gönüllülük projeleri hazırlıyor, gençlerin yurt dışı deneyimi kazanmasına öncülük ediyoruz." },
+                    { title: "Uluslararası Ortaklıklar", text: "Dünya genelindeki gençlik meclisleri ve sivil toplum kuruluşları ile ortak projeler ve iyi uygulama değişimleri yürütüyoruz." },
+                    { title: "Eurodesk Bilgilendirmeleri", text: "Yurt dışı eğitim, burs ve staj fırsatları hakkında gençleri bilgilendiren atölyeler ve soru-cevap seansları düzenliyoruz." }
+                ]
+            },
+            yerelyonetim: {
+                title: "Yerel Yönetimler Komisyonu",
+                subtitle: "Politika & Katılımcı Demokrasi",
+                icon: "fa-solid fa-landmark",
+                color: "violet",
+                description: "\"Gençlerin yönettiği bir İzmir\" vizyonuyla çalışan Yerel Yönetimler Komisyonu, gençlerin yerel karar alma mekanizmalarında aktif rol almasını sağlar. Belediyeler ve resmi kurumlar ile gençler arasında güçlü bir köprü görevi görürüz.",
+                activities: [
+                    { title: "Gençlik Politikaları Üretimi", text: "İzmir'deki belediyelerin stratejik planlarına gençlik perspektifinden katkı sunuyor, raporlar hazırlıyoruz." },
+                    { title: "Katılımcı Demokrasi", text: "Gençlerin yerel yönetimlerden beklentilerini, taleplerini ve projelerini doğrudan belediye başkanlarına ve meclis üyelerine iletebileceği zeminler yaratıyoruz." },
+                    { title: "Yerel İş Birlikleri", text: "Kent konseyleri ve muhtarlıklar ile koordineli çalışarak mahalle bazlı gençlik sorunlarına yerinde çözümler geliştiriyoruz." }
+                ]
+            }
+        };
+
+        const COLOR_CLASSES = {
+            indigo: "bg-indigo-50 text-indigo-600",
+            amber: "bg-amber-50 text-amber-600",
+            slate: "bg-slate-100 text-slate-600",
+            pink: "bg-pink-50 text-pink-600",
+            blue: "bg-blue-50 text-blue-600",
+            violet: "bg-violet-50 text-violet-600"
+        };
+
+        // Komisyon Detay Modalını Aç
+        function openCommissionModal(key) {
+            const data = COMMISSIONS[key];
+            if (!data) return;
+
+            const iconEl = document.getElementById('cm-icon');
+            iconEl.className = "w-14 h-14 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 " + COLOR_CLASSES[data.color];
+            iconEl.innerHTML = '<i class="' + data.icon + '"></i>';
+
+            document.getElementById('cm-title').innerText = data.title;
+            document.getElementById('cm-subtitle').innerText = data.subtitle;
+            document.getElementById('cm-description').innerText = data.description;
+
+            const eventsList = document.getElementById('cm-events');
+            eventsList.innerHTML = '';
+            data.activities.forEach(act => {
+                const li = document.createElement('li');
+                li.className = "flex items-start space-x-3 text-sm text-slate-600 bg-slate-50 rounded-xl px-4 py-3";
+                li.innerHTML = '<i class="fa-solid fa-check text-emerald-500 mt-1"></i><span><strong class="text-slate-900">' + act.title + ':</strong> ' + act.text + '</span>';
+                eventsList.appendChild(li);
+            });
+
+            const modal = document.getElementById('commission-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        // Komisyon Detay Modalını Kapat
+        function closeCommissionModal() {
+            const modal = document.getElementById('commission-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // ESC tuşu ile açık modalları kapat
+        document.addEventListener('keydown', function(e) {
+            if (e.key !== 'Escape') return;
+            const commission = document.getElementById('commission-modal');
+            const admin = document.getElementById('admin-modal');
+            if (!commission.classList.contains('hidden')) closeCommissionModal();
+            if (!admin.classList.contains('hidden')) toggleAdminModal();
+        });
+
+        // Mobil Menüyü Aç/Kapat
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = "fa-solid fa-xmark text-xl";
+            } else {
+                menu.classList.add('hidden');
+                icon.className = "fa-solid fa-bars text-xl";
+            }
+        }
+
+        // Toast Bildirim Kutusu Gösterici
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const icon = document.getElementById('toast-icon');
+            const msgSpan = document.getElementById('toast-message');
+            
+            msgSpan.textContent = message;
+            
+            if (type === 'success') {
+                icon.className = "fa-solid fa-circle-check text-emerald-400 text-lg";
+            } else {
+                icon.className = "fa-solid fa-circle-exclamation text-rose-400 text-lg";
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Yönetici Giriş Modalı
+        function toggleAdminModal() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('flex');
+            
+            // Ekranları sıfırla
+            document.getElementById('password-screen').classList.remove('hidden');
+            document.getElementById('settings-screen').classList.add('hidden');
+            document.getElementById('admin-password').value = '';
+        }
+
+        // Şifre Doğrulama
+        function checkAdminPassword() {
+            const password = document.getElementById('admin-password').value;
+            if (password === 'igm2026') {
+                document.getElementById('password-screen').classList.add('hidden');
+                document.getElementById('settings-screen').classList.remove('hidden');
+                showToast("Yönetici girişi başarılı.");
+            } else {
+                showToast("Hatalı yönetici şifresi!", "error");
+            }
+        }
+
+        // Değişiklikleri Kaydetme
+        function saveSettings() {
+            const newUrl = document.getElementById('settings-form-url').value.trim();
+            const newTitle = document.getElementById('settings-announcement-title').value.trim();
+
+            if (!newUrl || !newTitle) {
+                showToast("Lütfen tüm alanları doldurun!", "error");
+                return;
+            }
+
+            localStorage.setItem('igm_form_url', newUrl);
+            localStorage.setItem('igm_announcement_title', newTitle);
+
+            // Sayfadaki metinleri güncelle
+            document.getElementById('announcement-title').innerText = newTitle;
+
+            showToast("Web sitesi ayarları başarıyla güncellendi.");
+            toggleAdminModal();
+        }
+    </script>
+</body>
+</html>
