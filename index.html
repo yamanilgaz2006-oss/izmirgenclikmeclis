@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>izmirgenclikmeclis | İzmir Gençlik Meclisi Resmi Web Sitesi</title>
+    <title>izmirgenclikmeclis | İzmir Kent Konseyi Gençlik Meclisi</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -26,16 +26,17 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center space-x-2">
                         <img src="images/logo.png" alt="İzmir Kent Konseyi Gençlik Meclisi" class="h-12 w-auto" onerror="this.src='https://placehold.co/100x100/10b981/ffffff?text=IGM'">
-                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">izmirgenclikmeclis</span>
+                        <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">izmirgenclikmeclis</span>
                     </div>
                 </div>
                 <!-- Masaüstü Menü -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#hakkimizda" class="text-slate-600 hover:text-emerald-600 font-medium text-sm transition-colors">Biz Kimiz?</a>
-                    <a href="#komisyonlar" class="text-slate-600 hover:text-emerald-600 font-medium text-sm transition-colors">Komisyonlarımız</a>
-                    <a href="#projeler" class="text-slate-600 hover:text-emerald-600 font-medium text-sm transition-colors">Projelerimiz</a>
-                    <a href="#etkinlikler" class="text-slate-600 hover:text-emerald-600 font-medium text-sm transition-colors">Etkinlikler</a>
-                    <a href="#" onclick="openFormUrl()" class="apply-btn bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-emerald-100 transition-all flex items-center space-x-1.5">
+                    <a href="#hakkimizda" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Biz Kimiz?</a>
+                    <a href="#komisyonlar" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Komisyonlarımız</a>
+                    <a href="#projeler" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Projelerimiz</a>
+                    <a href="#etkinlikler" class="text-slate-600 hover:text-indigo-600 font-medium text-sm transition-colors">Etkinlikler</a>
+                    <!-- Doğrudan yeni sekmede açılan çalışan başvuru butonu -->
+                    <a href="#" onclick="openFormUrl(); return false;" class="apply-btn bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm px-5 py-2.5 rounded-xl shadow-md shadow-indigo-100 transition-all flex items-center space-x-1.5">
                         <i class="fa-solid fa-user-plus text-xs"></i>
                         <span>Aramıza Katıl</span>
                     </a>
@@ -50,11 +51,11 @@
         </div>
         <!-- Mobil Menü Listesi -->
         <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-4 space-y-3 shadow-inner">
-            <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-emerald-600 font-medium text-base transition-colors py-1">Biz Kimiz?</a>
-            <a href="#komisyonlar" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-emerald-600 font-medium text-base transition-colors py-1">Komisyonlarımız</a>
-            <a href="#projeler" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-emerald-600 font-medium text-base transition-colors py-1">Projelerimiz</a>
-            <a href="#etkinlikler" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-emerald-600 font-medium text-base transition-colors py-1">Etkinlikler</a>
-            <a href="#" onclick="openFormUrl(); toggleMobileMenu();" class="apply-btn block bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold text-base py-3 rounded-xl transition-all">
+            <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Biz Kimiz?</a>
+            <a href="#komisyonlar" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Komisyonlarımız</a>
+            <a href="#projeler" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Projelerimiz</a>
+            <a href="#etkinlikler" onclick="toggleMobileMenu()" class="block text-slate-600 hover:text-indigo-600 font-medium text-base transition-colors py-1">Etkinlikler</a>
+            <a href="#" onclick="openFormUrl(); toggleMobileMenu(); return false;" class="apply-btn block bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold text-base py-3 rounded-xl transition-all">
                 Aramıza Katıl
             </a>
         </div>
@@ -62,24 +63,24 @@
 
     <!-- Kahraman / Hero Section -->
     <section class="relative overflow-hidden py-24 lg:py-32 bg-slate-900 bg-cover bg-center" style="background-image: url('images/hero-bg.png');">
-        <!-- Karartma Katmanı (Okunabilirlik için) -->
+        <!-- Karartma Katmanı -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <span class="inline-flex items-center space-x-1.5 bg-white/10 text-emerald-100 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-sm">
+                    <span class="inline-flex items-center space-x-1.5 bg-white/10 text-indigo-100 text-xs font-semibold px-4 py-1.5 rounded-full border border-white/20 backdrop-blur-sm">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span>İzmir Kent Konseyi Gençlik Meclisi</span>
                     </span>
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight drop-shadow-lg">
                         İzmir'in Geleceği <br class="hidden sm:block">
-                        <span class="bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">Gençlikle Şekilleniyor</span>
+                        <span class="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">Gençlikle Şekilleniyor</span>
                     </h1>
                     <p class="text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed drop-shadow">
                         Fikirlerini projeye dönüştür, kentin yönetiminde söz sahibi ol! 6 komisyonumuzla beraber İzmir'i daha yaşanabilir, dinamik ve yeşil bir gençlik şehri yapmak için çalışıyoruz.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                        <a href="#" onclick="openFormUrl()" class="apply-btn bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold px-8 py-4 rounded-xl shadow-lg shadow-emerald-900/50 transition-all flex items-center justify-center space-x-2">
+                        <a href="#" onclick="openFormUrl(); return false;" class="apply-btn bg-indigo-600 hover:bg-indigo-700 text-white text-center font-semibold px-8 py-4 rounded-xl shadow-lg shadow-indigo-900/50 transition-all flex items-center justify-center space-x-2">
                             <span>Meclise Başvuru Yap</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
                         </a>
@@ -108,7 +109,7 @@
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
-                <img src="images/grup-foto.png" alt="İzmir Kent Konseyi Gençlik Meclisi Üyeleri" class="w-full h-auto object-cover" onerror="this.src='https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop'">
+                <img src="589878035_18096640063858213_6028130114892235944_n.jpg" alt="İzmir Kent Konseyi Gençlik Meclisi Üyeleri" class="w-full h-auto object-cover" onerror="this.src='images/grup-foto.png'">
             </div>
             <p class="text-center text-slate-400 text-sm mt-4">Meclis üyelerimizle birlikte düzenlediğimiz buluşmalardan bir kare.</p>
         </div>
@@ -119,7 +120,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Biz Kimiz?</h2>
-                <div class="h-1 w-20 bg-emerald-600 mx-auto rounded-full"></div>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
                 <p class="text-slate-600 text-lg">
                     izmirgenclikmeclis, İzmir Kent Konseyi çatısı altında faaliyet gösteren, kentin 30 ilçesindeki lise ve üniversite gençliğinin sesi olan, tamamen bağımsız ve gönüllü bir demokratik platformdur.
                 </p>
@@ -127,14 +128,14 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all space-y-4">
-                    <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h3 class="text-xl font-bold text-slate-900">Demokratik Temsiliyet</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
-                        Meclis içindeki kararlar, her komisyonun eşit temsiliyle ve ortak akılla alınır. Her ses eşittir.
+                        Meclis içindeki kararlar, her komisyonun eşit temsiliyle ve ortak akılla alınır. Her ses sesine eşittir.
                     </p>
                 </div>
                 <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-md transition-all space-y-4">
-                    <div class="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="w-12 h-12 bg-violet-50 text-violet-600 rounded-xl flex items-center justify-center text-xl shadow-inner"><i class="fa-solid fa-bolt"></i></div>
                     <h3 class="text-xl font-bold text-slate-900">Toplumsal Etki</h3>
                     <p class="text-slate-500 text-sm leading-relaxed">
                         Sadece konuşmuyor, iklim krizinden NEET gençlere kadar kentin tüm güncel sorunlarına aktif projelerle çözümler üretiyoruz.
@@ -156,9 +157,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">6 Aktif Komisyonumuz</h2>
-                <div class="h-1 w-20 bg-emerald-600 mx-auto rounded-full"></div>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
                 <p class="text-slate-600 text-base">
-                    Meclis bünyesinde faaliyetlerini iki haftada bir düzenleyen aktif komisyonlarimizi inceleyerek ilgi alanına en uygun olanı seçip başvurunu yapabilirsin.
+                    Meclis bünyesinde faaliyetlerini iki haftada bir düzenleyen aktif komisyonlarımızı inceleyerek ilgi alanına en uygun olanı seçip başvurunu yapabilirsin.
                 </p>
             </div>
 
@@ -166,11 +167,11 @@
                 <!-- Komisyon 1 -->
                 <div onclick="openCommissionModal('ogrenci')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
                     <div class="space-y-4">
-                        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-2xl flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
                         <h3 class="text-lg font-bold text-slate-900">Öğrenci Komisyonu</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">Lise ve üniversite öğrencilerinin haklarını savunur, akran gelişimini destekleyen etkinlikler ve platformlar oluşturur.</p>
                     </div>
-                    <span class="mt-4 inline-flex items-center text-emerald-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
+                    <span class="mt-4 inline-flex items-center text-indigo-600 text-xs font-bold">Detayları Gör <i class="fa-solid fa-arrow-right ml-1.5 text-[10px]"></i></span>
                 </div>
                 <!-- Komisyon 2 -->
                 <div onclick="openCommissionModal('kultur')" class="cursor-pointer bg-white p-8 rounded-3xl border border-slate-200/60 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all flex flex-col justify-between">
@@ -226,16 +227,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Öne Çıkan Aktif Projelerimiz</h2>
-                <div class="h-1 w-20 bg-emerald-600 mx-auto rounded-full"></div>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
                 <p class="text-slate-600 text-base">Meclisimiz sadece teoride değil, sahada aktif olarak bu kentsel hareketleri yürütüyor.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Proje 1 -->
                 <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                    <div class="bg-emerald-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-laptop-file text-3xl"></i></div>
+                    <div class="bg-indigo-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-laptop-file text-3xl"></i></div>
                     <div class="space-y-3">
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full uppercase">NEET Hareketi</span>
+                        <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full uppercase">NEET Hareketi</span>
                         <h3 class="text-xl font-bold text-slate-900">Genç İzmir Mentorluk Ağı</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">Ne eğitimde ne istihdamda olan (NEET) gençleri İzmir'deki iş dünyası liderleriyle ücretsiz akran mentorluğunda buluşturuyoruz.</p>
                     </div>
@@ -243,9 +244,9 @@
 
                 <!-- Proje 2 -->
                 <div class="bg-slate-50 rounded-3xl p-8 border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                    <div class="bg-teal-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-terminal text-3xl"></i></div>
+                    <div class="bg-violet-600 text-white p-5 rounded-2xl shadow-lg"><i class="fa-solid fa-terminal text-3xl"></i></div>
                     <div class="space-y-3">
-                        <span class="bg-teal-100 text-teal-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Kentsel Hackathon</span>
+                        <span class="bg-violet-100 text-violet-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Kentsel Hackathon</span>
                         <h3 class="text-xl font-bold text-slate-900">Genç İzmir Kent Hackathonu</h3>
                         <p class="text-slate-500 text-sm leading-relaxed">48 saatlik kesintisiz fikir geliştirme kampında üniversiteli gençler İzmir'in ulaşım ve iklim sorunlarına dijital çözümler üretiyor.</p>
                     </div>
@@ -254,12 +255,12 @@
         </div>
     </section>
 
-    <!-- Geçmiş Etkinlikler (Dinamik Liste Alanı) -->
+    <!-- Geçmiş Etkinlikler -->
     <section id="etkinlikler" class="py-20 bg-slate-50 border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
-                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Geçmiş Etkinliklerimiz</h2>
-                <div class="h-1 w-20 bg-emerald-600 mx-auto rounded-full"></div>
+                <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Geçmiş Etkinliklerimizi Keşfedin</h2>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
                 <p class="text-slate-600 text-base">İzmir Kent Konseyi Gençlik Meclisi olarak gerçekleştirdiğimiz, ses getiren önemli faaliyetlerimiz.</p>
             </div>
 
@@ -275,7 +276,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
                 <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Meclisten Son Duyurular</h2>
-                <div class="h-1 w-20 bg-emerald-600 mx-auto rounded-full"></div>
+                <div class="h-1 w-20 bg-indigo-600 mx-auto rounded-full"></div>
             </div>
 
             <div class="max-w-4xl mx-auto space-y-6">
@@ -289,7 +290,7 @@
                         <h4 class="text-lg font-bold text-slate-900 mt-1" id="announcement-title">İzmir Gençlik Meclisi Yeni Dönem Başvuruları Başladı!</h4>
                         <p class="text-slate-500 text-sm mt-1">Meclisimiz bünyesinde aktif olarak çalışacak yeni yol arkadaşlarımızı arıyoruz. Başvuru formunu doldurarak komisyonlarımıza katılabilirsiniz.</p>
                     </div>
-                    <a href="#" onclick="openFormUrl()" class="apply-btn bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all whitespace-nowrap self-stretch sm:self-auto text-center">
+                    <a href="#" onclick="openFormUrl(); return false;" class="apply-btn bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all whitespace-nowrap self-stretch sm:self-auto text-center">
                         Hemen Başvur
                     </a>
                 </div>
@@ -304,7 +305,7 @@
             <p>Herhangi bir veri sunucuya gitmez, tarayıcınızda ve tamamen yerel olarak çalışır.</p>
             <div class="pt-4 border-t border-slate-800 flex justify-between items-center flex-wrap gap-4">
                 <span>© 2026 İzmir Kent Konseyi Gençlik Meclisi. Tüm Hakları Saklıdır.</span>
-                <button onclick="toggleAdminModal()" class="text-slate-500 hover:text-emerald-400 transition-colors flex items-center space-x-1">
+                <button onclick="toggleAdminModal()" class="text-slate-500 hover:text-indigo-400 transition-colors flex items-center space-x-1">
                     <i class="fa-solid fa-lock text-[10px]"></i>
                     <span>Yönetici Girişi</span>
                 </button>
@@ -327,16 +328,16 @@
             </div>
             <div class="p-6 overflow-y-auto space-y-6">
                 <div>
-                    <h4 class="text-sm font-bold text-slate-900 mb-2 flex items-center space-x-2"><i class="fa-solid fa-circle-info text-emerald-500"></i><span>Komisyon Hakkında</span></h4>
+                    <h4 class="text-sm font-bold text-slate-900 mb-2 flex items-center space-x-2"><i class="fa-solid fa-circle-info text-indigo-500"></i><span>Komisyon Hakkında</span></h4>
                     <p id="cm-description" class="text-slate-600 text-sm leading-relaxed"></p>
                 </div>
                 <div>
-                    <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center space-x-2"><i class="fa-solid fa-bolt text-emerald-500"></i><span>Neler Yapıyoruz?</span></h4>
+                    <h4 class="text-sm font-bold text-slate-900 mb-3 flex items-center space-x-2"><i class="fa-solid fa-bolt text-indigo-500"></i><span>Neler Yapıyoruz?</span></h4>
                     <ul id="cm-events" class="space-y-2"></ul>
                 </div>
             </div>
             <div class="p-6 border-t border-slate-100">
-                <a href="#" onclick="openFormUrl()" class="apply-btn w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-md shadow-emerald-100 transition-all flex items-center justify-center space-x-2">
+                <a href="#" onclick="openFormUrl(); return false;" class="apply-btn w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-md shadow-indigo-100 transition-all flex items-center justify-center space-x-2">
                     <i class="fa-solid fa-user-plus text-xs"></i>
                     <span>Bu Komisyona Başvur</span>
                 </a>
@@ -355,7 +356,7 @@
         <div class="bg-white rounded-3xl max-w-2xl w-full shadow-2xl border border-slate-100 overflow-hidden transform scale-95 transition-all p-6 md:p-8 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center border-b border-slate-100 pb-4">
                 <h3 class="text-xl font-bold text-slate-900 flex items-center space-x-2">
-                    <i class="fa-solid fa-shield-halved text-emerald-600"></i>
+                    <i class="fa-solid fa-shield-halved text-indigo-600"></i>
                     <span>Yönetici Kontrol Paneli</span>
                 </h3>
                 <button onclick="toggleAdminModal()" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-times text-lg"></i></button>
@@ -367,9 +368,9 @@
                 <code class="bg-slate-100 text-slate-700 px-2 py-1 rounded font-mono text-xs inline-block">Varsayılan Şifre: igm2026</code>
                 <div>
                     <label class="block text-[10px] font-bold uppercase text-slate-400 mb-1">Yönetici Şifresi</label>
-                    <input type="password" id="admin-password" placeholder="Şifrenizi yazın..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-sm bg-white">
+                    <input type="password" id="admin-password" placeholder="Şifrenizi yazın..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm bg-white">
                 </div>
-                <button onclick="checkAdminPassword()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl shadow-md transition-all">
+                <button onclick="checkAdminPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl shadow-md transition-all">
                     Giriş Yap
                 </button>
             </div>
@@ -380,31 +381,31 @@
                 <!-- Bölüm 1: Genel Başvuru Linki -->
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-3">
                     <h4 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-paper-plane text-emerald-600"></i> Başvuru Formu URL'si
+                        <i class="fa-solid fa-paper-plane text-indigo-600"></i> Başvuru Formu URL'si
                     </h4>
                     <p class="text-slate-400 text-xs">Sitedeki tüm "Hemen Başvur" ve "Aramıza Katıl" butonlarının yönleneceği link.</p>
-                    <input type="url" id="settings-form-url" placeholder="https://docs.google.com/forms/d/..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs font-mono bg-white">
+                    <input type="url" id="settings-form-url" placeholder="https://docs.google.com/forms/d/..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono bg-white">
                 </div>
 
                 <!-- Bölüm 2: Yeni Geçmiş Etkinlik Ekleme -->
                 <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-3">
                     <h4 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-calendar-plus text-emerald-600"></i> Yeni Geçmiş Etkinlik Ekle
+                        <i class="fa-solid fa-calendar-plus text-indigo-600"></i> Yeni Geçmiş Etkinlik Ekle
                     </h4>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <input type="text" id="settings-event-title" placeholder="Etkinlik Başlığı" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs bg-white">
-                        <input type="text" id="settings-event-date" placeholder="Etkinlik Tarihi (Örn: 19 Aralık 2023)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs bg-white">
+                        <input type="text" id="settings-event-title" placeholder="Etkinlik Başlığı" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white">
+                        <input type="text" id="settings-event-date" placeholder="Etkinlik Tarihi (Örn: 19 Aralık 2023)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white">
                     </div>
-                    <input type="text" id="settings-event-image" placeholder="Görsel Dosya Adı (Örn: 568589819_18092072680858213_2831321656175180118_n.jpeg)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs font-mono bg-white">
-                    <textarea id="settings-event-desc" rows="2" placeholder="Etkinlik hakkında kısa bir açıklama..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 text-xs bg-white"></textarea>
+                    <input type="text" id="settings-event-image" placeholder="Görsel Dosya Adı (Örn: 568589819_18092072680858213_2831321656175180118_n.jpeg)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono bg-white">
+                    <textarea id="settings-event-desc" rows="2" placeholder="Etkinlik hakkında kısa bir açıklama..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white"></textarea>
                     
-                    <button onclick="addEvent()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all shadow-md">Etkinliği Yayınla</button>
+                    <button onclick="addEvent()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all shadow-md">Etkinliği Yayınla</button>
                 </div>
 
                 <!-- Bölüm 3: Mevcut Etkinlikleri Listele & Sil -->
                 <div class="space-y-3">
                     <h4 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-                        <i class="fa-solid fa-list-check text-emerald-600"></i> Mevcut Etkinlikleri Yönet
+                        <i class="fa-solid fa-list-check text-indigo-600"></i> Mevcut Etkinlikleri Yönet
                     </h4>
                     <div id="adminEventsList" class="space-y-2 max-h-48 overflow-y-auto pr-1">
                         <!-- JS ile dinamik listelenecek -->
@@ -425,15 +426,15 @@
 
     <!-- JavaScript Kod Motoru -->
     <script>
-        const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/1CJgcqL_wnR5iQLZL_jOkxPTwH9stgU4xfHHb9HrD6t8/viewform";
+        const DEFAULT_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSenRzoBNvapGTmJ_tzyFvPTE1G-c_rTuu5c0CJ3TQVpfp5eAg/viewform";
         
-        // Önemli Facebook Etkinliklerinin Gerçek Fotoğraflarla Güncellenmesi (Tam 6 adet şık eşleşme)
+        // 6 Adet Önemli Facebook Etkinliğinin Gerçek Fotoğraflarla Eşleştiği Nihai Liste
         const defaultEvents = [
             {
                 id: "igm-stem",
                 title: "STEM Zirvesi",
                 date: "19 Aralık 2023",
-                desc: "İzmir Kent Konseyi Gençlik Meclisi olarak geniş bir katılım ve büyük bir coşkuyla STEM Zirvesi'ni başarıyla gerçekleştirdik.",
+                desc: "İzmir Kent Konseyi Gençlik Meclisi olarak Ahmed Adnan Saygun Sanat Merkezi'nde geniş bir katılım ve büyük bir coşkuyla STEM Zirvesi'ni başarıyla gerçekleştirdik.",
                 image: "568589819_18092072680858213_2831321656175180118_n.jpeg"
             },
             {
@@ -479,7 +480,6 @@
         };
 
         function initPage() {
-            // Başvuru linkini ayarla
             const savedUrl = localStorage.getItem('igm_form_url') || DEFAULT_FORM_URL;
             const heroBtns = document.querySelectorAll('.apply-btn');
             heroBtns.forEach(btn => {
@@ -489,13 +489,15 @@
                 };
             });
 
-            // Önbellek temizleme ve sürüm yenileme kontrolü (v5 sürümüne yükseltilerek önbellek yenilendi)
+            // Önbellek temizleme kontrolü (Yeni sürüm v2.6 ile hafıza kilitlenmelerini zorla sıfırlıyoruz)
             const expectedVersion = "2.6";
-            const currentVersion = localStorage.getItem('igm_events_version_v5');
+            const currentVersion = localStorage.getItem('igm_events_version_v6');
             if (currentVersion !== expectedVersion) {
                 localStorage.setItem('igm_events', JSON.stringify(defaultEvents));
-                localStorage.setItem('igm_events_version_v5', expectedVersion);
+                localStorage.setItem('igm_events_version_v6', expectedVersion);
+                localStorage.removeItem('igm_events_version_v5');
                 localStorage.removeItem('igm_events_version_v3');
+                localStorage.removeItem('igm_events_v4');
             }
 
             // Etkinlikleri ve ayarları yükle
