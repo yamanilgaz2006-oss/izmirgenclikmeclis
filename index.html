@@ -105,7 +105,7 @@
         </div>
     </section>
 
-    <!-- Topluluk Fotoğrafı -->
+    <!-- Topluluk Fotoğrafı (Eşleşmesi Düzeltilen Alan) -->
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
@@ -480,6 +480,13 @@
         };
 
         function initPage() {
+            // Hafıza kilidini kıran akıllı temizleyici (Eğer tarayıcı hafızasında düzenleme/taslak linki "1CJgcqL" varsa temizler)
+            const currentSavedUrl = localStorage.getItem('igm_form_url');
+            if (currentSavedUrl && currentSavedUrl.includes("1CJgcqL")) {
+                localStorage.removeItem('igm_form_url');
+                localStorage.removeItem('igm_events');
+            }
+
             const savedUrl = localStorage.getItem('igm_form_url') || DEFAULT_FORM_URL;
             const heroBtns = document.querySelectorAll('.apply-btn');
             heroBtns.forEach(btn => {
@@ -489,7 +496,7 @@
                 };
             });
 
-            // Önbellek temizleme kontrolü (Yeni sürüm v2.6 ile hafıza kilitlenmelerini zorla sıfırlıyoruz)
+            // Sürüm kontrolü (Tarayıcı önbelleğindeki eski hatalı Unsplash listelerini tamamen uçurur)
             const expectedVersion = "2.6";
             const currentVersion = localStorage.getItem('igm_events_version_v6');
             if (currentVersion !== expectedVersion) {
@@ -590,7 +597,7 @@
                 color: "pink",
                 description: "Dijital dünyadaki vitrinimiz olan Sosyal Medya Takımı; meclisimizin sesini, projelerini ve vizyonunu modern iletişim araçlarıyla tüm dünyaya duyurur. Yaratıcı fikirleri estetik tasarımlara ve viral içeriklere dönüştürürüz.",
                 activities: [
-                    { title: "İçerik ve Video Prodüksiyonu", text: "Reels, YouTube videoları, podcast serileri ve röportajlar hazırlayarak gençlerin ilgisini çeken dinamik içerikler üretiyoruz." },
+                    { title: "İçerik ve Video Profil", text: "Reels, YouTube videoları, podcast serileri ve röportajlar hazırlayarak gençlerin ilgisini çeken dinamik içerikler üretiyoruz." },
                     { title: "Grafik Tasarım", text: "Etkinlik afişleri, bilgilendirici infografikler ve web sitesi görselleri ile meclisin kurumsal kimliğini dijitalde inşa ediyoruz." },
                     { title: "Topluluk Yönetimi", text: "Takipçilerimizle etkileşimi canlı tutuyor, gelen mesaj ve geri bildirimleri koordine ederek dijital bir gençlik topluluğu büyütüyoruz." }
                 ]
