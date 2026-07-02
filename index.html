@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>izmirgenclikmeclis | İzmir Kent Konseyi Gençlik Meclisi</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -109,8 +110,7 @@
     <section class="py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-100">
-                <img src="kahraman-arka plan.png" alt="İzmir Kent Konseyi Gençlik Meclisi Üyeleri" class="w-full h-auto object-cover" onerror="this.src='images/grup-foto.png'">
-                <p class="text-center text-slate-400 text-sm mt-4">Meclis üyelerimizle birlikte düzenlediğimiz buluşmalardan bir kare.</p>
+                <img src="images/hero-bg.png" alt="İzmir Kent Konseyi Gençlik Meclisi Üyeleri" class="w-full h-auto object-cover block" onerror="this.src='https://placehold.co/1200x600/10b981/ffffff?text=Genclik+Meclisi'">
             </div>
         </div>
     </section>
@@ -396,7 +396,7 @@
                         <input type="text" id="settings-event-title" placeholder="Etkinlik Başlığı" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white">
                         <input type="text" id="settings-event-date" placeholder="Etkinlik Tarihi (Örn: 19 Aralık 2023)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white">
                     </div>
-                    <input type="text" id="settings-event-image" placeholder="Görsel Dosya Adı (Örn: 568589819_18092072680858213_2831321656175180118_n.jpeg)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono bg-white">
+                    <input type="text" id="settings-event-image" placeholder="Görsel Dosya Adı (Örn: images/events/stem-zirvesi.jpeg)" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs font-mono bg-white">
                     <textarea id="settings-event-desc" rows="2" placeholder="Etkinlik hakkında kısa bir açıklama..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-xs bg-white"></textarea>
                     
                     <button onclick="addEvent()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs py-2 px-4 rounded-xl transition-all shadow-md">Etkinliği Yayınla</button>
@@ -433,44 +433,44 @@
             {
                 id: "igm-stem",
                 title: "STEM Zirvesi",
-                date: "19 Aralık 2023",
+                date: "6 Ekim 2025",
                 desc: "İzmir Kent Konseyi Gençlik Meclisi olarak Ahmed Adnan Saygun Sanat Merkezi'nde geniş bir katılım ve büyük bir coşkuyla STEM Zirvesi'ni başarıyla gerçekleştirdik.",
-                image: "568589819_18092072680858213_2831321656175180118_n.jpeg"
+                image: "images/events/stem-zirvesi.jpeg"
             },
             {
                 id: "igm-oryantasyon-yeni",
                 title: "Meclis İçi Oryantasyon ve Tanışma",
                 date: "25 Aralık 2023",
                 desc: "Meclisimizin yeni dönem üyeleriyle bir araya gelerek komisyon süreçlerini planladığımız, ekip ruhunu pekiştirdiğimiz tanışma ve oryantasyon sürecini tamamladık.",
-                image: "589907999_18097538266858213_8651188340049061324_n.jpg"
+                image: "images/events/oryantasyon.jpg"
             },
             {
                 id: "igm-simulasyon",
                 title: "İzmir Büyükşehir Belediyesi Meclis Simülasyonu",
                 date: "18 Mayıs 2024",
                 desc: "Büyükşehir Belediye Meclisinde gerçekleştirdiğimiz simülasyonda gençlerimiz, Büyükşehir Belediye Meclisi'ni canlandırarak 'İklim Dostu Abonman' ve gençlik merkezleri üzerine önergeler hazırlayıp karar alma süreçlerini bizzat deneyimledi.",
-                image: "571102358_18092850535858213_1298212803269839483_n.jpeg"
+                image: "images/events/meclis-simulasyonu.jpeg"
             },
             {
                 id: "igm-kultur",
                 title: "İzmir Deniz Müzesi Keşif Gezisi",
-                date: "11 Kasım 2024",
+                date: "12 Aralık 2025",
                 desc: "Kültür-Sanat ve Keşif faaliyetlerimiz çerçevesinde İzmir Deniz Müzesi'ni ziyaret ettik. Kentimizin denizcilik tarihi ve kültürel mirasını yerinde inceleyerek yeni dönem projelerimizi planladık.",
-                image: "587391873_18096275569858213_3567773942980131709_n.jpeg"
+                image: "images/events/deniz-muzesi-gezisi.jpeg"
             },
             {
                 id: "igm-kibris",
                 title: "Kıbrıs Süreci ve Gazimağusa Ziyareti",
                 date: "16 Şubat 2025",
                 desc: "Uluslararası sivil sivil gençlik diplomasi programı kapsamında Gazimağusa Belediye Başkanı Sn. Dr. Süleyman Uluçay'ı makamında ziyaret ederek iki kıyı arasındaki dayanışma köprülerini ele aldık.",
-                image: "626039687_18102272917858213_9007259209786156308_n.jpg"
+                image: "images/events/kibris-ziyareti.jpg"
             },
             {
                 id: "igm-kamplar",
                 title: "Bölgesel Gençlik Eğitim ve Ekoloji Kampı",
                 date: "21 Temmuz 2025",
                 desc: "Bornova Yerleşkemizde sivil toplum kuruluşları, üniversite toplulukları ve 100'den fazla aktif gencin katılımıyla düzenlenen kampımızda; ekoloji, proje döngüsü yönetimi, sivil katılım ve liderlik atölyeleri düzenledik.",
-                image: "537434318_18084789685858213_1611766557931114891_n.jpeg"
+                image: "images/events/genclik-kampi.jpeg"
             }
         ];
 
@@ -497,7 +497,7 @@
             });
 
             // Sürüm kontrolü (Tarayıcı önbelleğindeki eski hatalı Unsplash listelerini tamamen uçurur)
-            const expectedVersion = "2.6";
+            const expectedVersion = "2.7";
             const currentVersion = localStorage.getItem('igm_events_version_v6');
             if (currentVersion !== expectedVersion) {
                 localStorage.setItem('igm_events', JSON.stringify(defaultEvents));
