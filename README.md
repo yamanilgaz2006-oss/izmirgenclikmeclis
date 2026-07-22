@@ -34,6 +34,6 @@ python3 -m http.server 8000
 ## Notlar
 
 - Başvuru butonları `openFormUrl()` fonksiyonu üzerinden başvuru formuna yönlendirir.
-  Form adresi `index.html` içindeki `defaultFormUrl` değişkeninden güncellenebilir.
+  Form adresi `index.html` içindeki `DEFAULT_FORM_URL` sabitinden güncellenebilir.
 - Etkinlikler `index.html` içindeki `defaultEvents` dizisinden düzenlenir; her etkinliğin
   görseli `images/events/` klasöründen referanslanır.
